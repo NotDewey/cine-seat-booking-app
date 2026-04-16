@@ -1,4 +1,4 @@
-const API_URL = "http://54.147.4.217:3000";
+const API_URL = "";
 const movieSelect = document.getElementById("movieSelect");
 const seatMap = document.getElementById("seatMap");
 const reserveBtn = document.getElementById("reserveBtn");
