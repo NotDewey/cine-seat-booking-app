@@ -1,0 +1,16 @@
+[2026-04-16 17:15:39] INFO: Server started on port 3000
+[2026-04-16 17:15:45] INFO: Health check executed
+[2026-04-16 17:15:52] INFO: Movies requested
+[2026-04-16 17:15:57] INFO: Reservations requested
+[2026-04-16 17:17:21] INFO: Movies requested
+[2026-04-16 17:17:25] INFO: Reservations requested
+[2026-04-16 17:17:32] INFO: Reservation created by Dewey for seats A1,A2
+[2026-04-16 17:28:31] INFO: Movies requested
+[2026-04-16 17:28:31] INFO: Reservations requested
+[2026-04-16 17:28:54] INFO: Reservation created by Dewey for seats A3,A4
+[2026-04-16 17:28:54] INFO: Reservations requested
+[2026-04-16 17:29:53] INFO: Server started on port 3000
+[2026-04-16 17:30:03] INFO: Movies requested
+[2026-04-16 17:30:03] INFO: Reservations requested
+[2026-04-16 17:30:58] INFO: Reservation created by Dewey for seats C3,C4
+[2026-04-16 17:30:58] INFO: Reservations requested

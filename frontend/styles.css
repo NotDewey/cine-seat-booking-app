@@ -1,0 +1,100 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #111827;
+  color: white;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+.panel {
+  background: #1f2937;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 6px;
+}
+
+input, select, button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+}
+
+button {
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+.screen {
+  background: #d1d5db;
+  color: black;
+  text-align: center;
+  padding: 10px;
+  margin: 20px auto;
+  width: 60%;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.seat-map {
+  display: grid;
+  grid-template-columns: repeat(5, 60px);
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.seat {
+  width: 60px;
+  height: 60px;
+  background: #374151;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.seat.selected {
+  background: #22c55e;
+}
+
+.seat.occupied {
+  background: #ef4444;
+  cursor: not-allowed;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: #374151;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
+}a

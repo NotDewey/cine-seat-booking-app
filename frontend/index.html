@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cine Seat Booking</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Cine Seat Booking</h1>
+
+    <div class="panel">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" placeholder="Enter your name" />
+
+      <label for="movieSelect">Movie</label>
+      <select id="movieSelect"></select>
+
+      <h2>Select Your Seats</h2>
+      <div class="screen">SCREEN</div>
+      <div id="seatMap" class="seat-map"></div>
+
+      <button id="reserveBtn">Reserve Seats</button>
+    </div>
+
+    <div class="panel">
+      <h2>Current Reservations</h2>
+      <ul id="reservationList"></ul>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
