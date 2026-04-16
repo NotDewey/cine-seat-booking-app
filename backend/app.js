@@ -41,11 +41,11 @@ app.get("/movies", (req, res) => {
 // 🎟️ reservas (temporal en memoria)
 let reservations = [];
 
-// crear reserva
+//crea reserva
 app.post("/reservations", (req, res) => {
-  const { name, seats } = req.body;
+  const { name, seats, movie } = req.body;
 
-  if (!name || !seats) {
+  if (!name || !seats || !movie) {
     writeLog("ERROR", "Invalid reservation request");
     return res.status(400).json({ error: "Datos incompletos" });
   }
@@ -53,15 +53,29 @@ app.post("/reservations", (req, res) => {
   const newReservation = {
     id: Date.now(),
     name,
+    movie,
     seats,
     createdAt: new Date()
   };
 
   reservations.push(newReservation);
 
-  writeLog("INFO", `Reservation created by ${name} for seats ${seats.join(",")}`);
+  writeLog("INFO", `Reservation created by ${name} for movie ${movie} and seats ${seats.join(",")}`);
 
   res.json(newReservation);
+});
+
+app.get("/reservations", (req, res) => {
+  const { movie } = req.query;
+
+  let filteredReservations = reservations;
+
+  if (movie) {
+    filteredReservations = reservations.filter(r => r.movie === movie);
+  }
+
+  writeLog("INFO", `Reservations requested${movie ? ` for movie ${movie}` : ""}`);
+  res.json(filteredReservations);
 });
 
 // obtener reservas

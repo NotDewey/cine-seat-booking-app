@@ -63,7 +63,8 @@ function renderSeats() {
 }
 
 async function loadReservations() {
-  const res = await fetch(`${API_URL}/reservations`);
+  const selectedMovie = movieSelect.value;
+  const res = await fetch(`${API_URL}/reservations?movie=${encodeURIComponent(selectedMovie)}`);
   const reservations = await res.json();
 
   reservationList.innerHTML = "";
@@ -95,6 +96,7 @@ async function reserveSeats() {
     },
     body: JSON.stringify({
       name,
+      movie: movieSelect.value,
       seats: selectedSeats
     })
   });
@@ -115,5 +117,10 @@ async function init() {
   await loadMovies();
   await loadReservations();
 }
+
+movieSelect.addEventListener("change", () => {
+  selectedSeats = [];
+  loadReservations();
+});
 
 init();
