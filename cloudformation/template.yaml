@@ -1,16 +1,30 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Description: Template basico para proyecto DevOps Cine Seat Booking App
 
+Parameters:
+  VpcId:
+    Type: AWS::EC2::VPC::Id
+    Description: VPC donde se creara el Security Group
+
+  AmiId:
+    Type: AWS::EC2::Image::Id
+    Description: AMI de la instancia EC2
+
+  KeyName:
+    Type: AWS::EC2::KeyPair::KeyName
+    Description: Nombre del key pair existente
+
 Resources:
   DevOpsS3Bucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: !Sub devops-cine-logs-${AWS::AccountId}
+      BucketName: !Sub devops-cine-logs-${AWS::AccountId}-${AWS::Region}
 
   DevOpsSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: Security Group for Cine Seat Booking App
+      VpcId: !Ref VpcId
       SecurityGroupIngress:
         - IpProtocol: tcp
           FromPort: 22
@@ -25,19 +39,12 @@ Resources:
           ToPort: 3000
           CidrIp: 0.0.0.0/0
 
-      # In production, Security Groups should restrict access as much as possible.
-      # Port 22 should ideally be limited to trusted IPs only.
-      # Port 8080 is used for frontend access.
-      # Port 3000 may be used for backend/API testing.
-      # Avoid using 0.0.0.0/0 broadly in production environments.
-
-      VpcId: vpc-xxxxxxxx
-
   DevOpsEC2Instance:
     Type: AWS::EC2::Instance
     Properties:
-      ImageId: ami-xxxxxxxx
+      ImageId: !Ref AmiId
       InstanceType: t2.micro
+      KeyName: !Ref KeyName
       SecurityGroupIds:
         - !Ref DevOpsSecurityGroup
       Tags:
