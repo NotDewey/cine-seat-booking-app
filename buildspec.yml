@@ -1,0 +1,31 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing dependencies
+
+  pre_build:
+    commands:
+      - echo Pre-build started
+      - ls
+      - test -f docker-compose.yml
+
+  build:
+    commands:
+      - echo Build started
+      - test -f frontend/index.html
+      - test -f frontend/app.js
+      - test -f frontend/styles.css
+      - test -f backend/app.js
+      - test -f backend/Dockerfile
+      - test -f frontend/Dockerfile
+      - echo Build validation passed
+
+  post_build:
+    commands:
+      - echo Build completed successfully
+
+artifacts:
+  files:
+    - '**/*'
